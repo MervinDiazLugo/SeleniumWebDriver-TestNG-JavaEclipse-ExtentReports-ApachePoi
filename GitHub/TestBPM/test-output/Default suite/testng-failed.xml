@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="claimVida.Claim_Vida_Excel">
+        <methods>
+          <include name="T02_AgregarOtroDatoConctacto"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="T04_EliminarDatosContacto"/>
+          <include name="setUp"/>
+          <include name="T05_ZAvanzarAdmitirExpediente"/>
+          <include name="T03_EditarDatosContacto"/>
+          <include name="T01_AgregarDatosConctacto"/>
+        </methods>
+      </class> <!-- claimVida.Claim_Vida_Excel -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
