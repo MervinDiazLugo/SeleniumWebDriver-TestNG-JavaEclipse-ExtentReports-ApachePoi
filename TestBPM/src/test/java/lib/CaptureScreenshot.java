@@ -16,7 +16,7 @@ public class CaptureScreenshot {
 			
 			File source= ts.getScreenshotAs(OutputType.FILE);
 			
-			String ruta= ".//ScreenShots/"+captureN+".png";
+			String ruta= "/ScreenShots/"+captureN+".png";
 			
 			File destino= new File (ruta);
 			

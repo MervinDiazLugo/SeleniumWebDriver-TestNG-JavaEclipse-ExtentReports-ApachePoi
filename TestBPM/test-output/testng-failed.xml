@@ -3,18 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="claimVida.Claim_Vida_Excel">
+      <class name="claimVida.CP01_02_DatosContacto_Claim_Vida_Excel">
         <methods>
+          <include name="T04_EliminarDatosContacto"/>
+          <include name="T03_EditarDatosContacto"/>
+          <include name="setUp"/>
           <include name="T02_AgregarOtroDatoConctacto"/>
           <include name="tearDown"/>
           <include name="tearDown"/>
-          <include name="T04_EliminarDatosContacto"/>
-          <include name="setUp"/>
-          <include name="T05_ZAvanzarAdmitirExpediente"/>
-          <include name="T03_EditarDatosContacto"/>
-          <include name="T01_AgregarDatosConctacto"/>
         </methods>
-      </class> <!-- claimVida.Claim_Vida_Excel -->
+      </class> <!-- claimVida.CP01_02_DatosContacto_Claim_Vida_Excel -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

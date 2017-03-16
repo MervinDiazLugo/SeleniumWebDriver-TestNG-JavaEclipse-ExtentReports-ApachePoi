@@ -35,7 +35,7 @@ public class Claim_Vida {
   String baseUrl;
   boolean acceptNextAlert = true;
   StringBuffer verificationErrors = new StringBuffer();
-  int CaptureN, Reporte;
+  int CaptureN, Reporte=1;
   ExtentReports report;
   ExtentTest TestBPM; 
   String NombreReporte, TestCaptura;

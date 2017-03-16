@@ -32,7 +32,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Claim_Vida_Excel {
+public class CP01_02_DatosContacto_Claim_Vida_Excel {
   WebDriver driver;
   boolean acceptNextAlert = true,  isPresente, chBox, chBox1;
   StringBuffer verificationErrors = new StringBuffer();
@@ -51,9 +51,10 @@ public class Claim_Vida_Excel {
   
   
  //Inicializa tarea segun ID de Tarea
-  	String IdTarea= "1817";
-	String URLInicial= "http://192.168.5.56:9080/teamworks/redirect-login.jsp?credentials=bWVydmluZA%3D%3D%3AMTIzNDU2&j_forward=process.lsw?zWorkflowState=1%26zTaskId=" + IdTarea + "%26applicationId=2%26applicationInstanceId=guid:850bbec95ddcfaaf:7300daf5:15aa3b068d2:-7ffe";
-	String URLSecundaria="http://192.168.5.56:9080/teamworks/redirect-login.jsp?credentials=bWVydmluZA%3D%3D%3AMTIzNDU2&j_forward=process.lsw?zWorkflowState=1%26zTaskId="+ String.valueOf(Integer.valueOf(IdTarea) + 1) +"%26applicationId=2%26applicationInstanceId=guid:141dc95be660a7ec:-357179ce:15aae32651f:-7ffe";
+  	String IdTarea1= "1834";
+  	
+  	
+	String URLInicial= "http://bpm8502fix:9080/teamworks/redirect-login.jsp?credentials=bWVydmluZA%3D%3D%3AMTIzNDU2&j_forward=process.lsw?zWorkflowState=1%26zTaskId=" + IdTarea1 + "%26applicationId=2%26applicationInstanceId=guid:850bbec95ddcfaaf:7300daf5:15aa3b068d2:-7ffe";
 	
 	
 	//http://bpm8502fix:9080/teamworks/redirect-login.jsp?credentials=bWVydmluZA%3D%3D%3AMTIzNDU2&j_forward=process.lsw?zWorkflowState=1%26zTaskId=1756%26applicationId=2%26applicationInstanceId=guid:850bbec95ddcfaaf:7300daf5:15aa3b068d2:-7ffe
@@ -70,9 +71,8 @@ public class Claim_Vida_Excel {
 	LeerExcel = new ExcelDataConfig(ExcelPath);
 	EscribirExcel = new ExcelDataConfig(ExcelPath);
 	
-	IExplorer();
+	GChrome(URLInicial);
 	
-	System.out.println(URLSecundaria);
   }
 	
   @Test 
@@ -162,8 +162,8 @@ public class Claim_Vida_Excel {
     //Notificaciones NO
     //driver.findElement(By.xpath("//input[contains(@id,'dijit_form_RadioButton_3')]")).click();
     
-    Thread.sleep(10000);
-    driver.findElement(By.xpath("//div[1]/div[3]/div[1]/div/div[3]/div/div/div/div/div[1]/div/div/div/div[3]/div/div/div[4]/button")).click();
+    Thread.sleep(5000);
+    driver.findElement(By.xpath("//div[@id='div_3_1_1_1_1_1_1_3_1_3']//button[.='Agregar']")).click();
     
     Thread.sleep(20000);
     
@@ -173,12 +173,13 @@ public class Claim_Vida_Excel {
     WebElement boton = driver.findElement(By.xpath("//div[1]/div[3]/div[1]/div/div[3]/div/div/div/div/div[1]/div/div/div/div[3]/div/div/div[4]/button"));
     Assert.assertEquals(true, boton.isDisplayed());
     
+
     ScreenShot_Path= "<img src="+ CaptureScreenshot.ScreenShot(driver, TestCaptura.concat(Integer.toString(CaptureN++))) + ">"; 
     TestBPM.log(LogStatus.INFO, "Agregar Datos de Contacto Finalizo Correctamente", ScreenShot_Path);
     
-    Msj="OK";
-    EscribirExcel.WriteData(0, 2, 13, Msj);
-    EscribirExcel.WriteData(0, 4, 13, Msj);
+    
+    EscribirExcel.WriteData(0, 3, 13, Msj);
+    EscribirExcel.WriteData(0, 5, 13, Msj);
 	
   }
  
@@ -195,20 +196,6 @@ public class Claim_Vida_Excel {
 	//Cargar Matriz de Excel
 		otroDatoContacto();
 	
-    
-    //driver.switchTo().frame(2);
-	
-	//Lugar Notificación Real
-		driver.findElement(By.xpath("//input[contains(@id,'dijit_form_FilteringSelect_0')]")).clear();
-		driver.findElement(By.xpath("//input[contains(@id,'dijit_form_FilteringSelect_0')]")).sendKeys(Lugar);
-	    
-		//Tipo Trámite 
-		driver.findElement(By.xpath("//input[@id='dijit_form_FilteringSelect_1']")).clear();
-		driver.findElement(By.xpath("//input[@id='dijit_form_FilteringSelect_1']")).sendKeys(Tramite);
-		
-		//Prioridad
-		driver.findElement(By.xpath("//input[contains(@id,'dijit_form_FilteringSelect_2')]")).clear();
-		driver.findElement(By.xpath("//input[contains(@id,'dijit_form_FilteringSelect_2')]")).sendKeys(Prioridad);
 	    
 		// Tipo de Documento
 		driver.findElement(By.xpath("//input[contains(@id,'dijit_form_FilteringSelect_9')]")).clear();
@@ -272,8 +259,8 @@ public class Claim_Vida_Excel {
 	    //Notificaciones NO
 	    //driver.findElement(By.xpath("//input[contains(@id,'dijit_form_RadioButton_3')]")).click();
 	    
-	    Thread.sleep(10000);
-	    driver.findElement(By.xpath("//div[1]/div[3]/div[1]/div/div[3]/div/div/div/div/div[1]/div/div/div/div[3]/div/div/div[4]/button")).click();
+	    Thread.sleep(5000);
+	    driver.findElement(By.xpath("//div[@id='div_3_1_1_1_1_1_1_3_1_3']//button[.='Agregar']")).click();
 	    
 	    Thread.sleep(20000);
     
@@ -285,8 +272,7 @@ public class Claim_Vida_Excel {
     ScreenShot_Path= "<img src="+ CaptureScreenshot.ScreenShot(driver, TestCaptura.concat(Integer.toString(CaptureN++))) + ">"; 
     TestBPM.log(LogStatus.INFO, "Agregar Datos de Contacto Finalizo Correctamente", ScreenShot_Path);
 	
-    Msj="OK";
-    EscribirExcel.WriteData(0, 5, 13, Msj);
+    EscribirExcel.WriteData(0, 6, 13, Msj);
   }
 
   @Test
@@ -326,6 +312,8 @@ public class Claim_Vida_Excel {
 
 		ScreenShot_Path= "<img src="+ CaptureScreenshot.ScreenShot(driver, TestCaptura.concat(Integer.toString(CaptureN++))) + ">"; 
 	    TestBPM.log(LogStatus.INFO, "Editar Datos de Contacto Finalizo Correctamente", ScreenShot_Path);
+	    
+	    EscribirExcel.WriteData(0, 7, 13, Msj);
     }
 
   @Test
@@ -369,8 +357,8 @@ public class Claim_Vida_Excel {
 		
 		
 		
-	    //WebElement boton = driver.findElement(By.xpath("//button[contains(.,'Editar')]"));
-	   // Assert.assertEquals(true, boton.isDisplayed());
+		 	ScreenShot_Path= "<img src="+ CaptureScreenshot.ScreenShot(driver, TestCaptura.concat(Integer.toString(CaptureN++))) + ">"; 
+		    TestBPM.log(LogStatus.INFO, "Se elimino el Dato de Contacto", ScreenShot_Path);
 
     }
 
@@ -394,7 +382,8 @@ public class Claim_Vida_Excel {
   /**
  @Test
   public void T06_DatosCobertura() throws Exception {
-	 GChrome();
+	String IdTarea1= String.valueOf(Integer.valueOf(IdTarea1) + 1);
+	GChrome(IdTarea1);
 	NombreReporte= "T06 Datos Cobertura";
 	TestCaptura="T06_DatosCobertura";
 	TestBPM=report.startTest(NombreReporte);
@@ -615,11 +604,11 @@ public void BorrarDatosdeContacto(){
 	  if(result.getStatus()==ITestResult.FAILURE)
 	  {
 		  TestBPM.log(LogStatus.FAIL, "Ha fallado la Prueba");
-
+		  Msj="NOK";
 	  }else {
 		 
 		  TestBPM.log(LogStatus.PASS, "Se culmino la prueba Exitosamente");
-
+		  Msj="OK";
 	  }
 	  
 	  report.endTest(TestBPM);
@@ -683,7 +672,7 @@ public void editarDatoContacto(){
 }
 //////////////NAVEGADORES//////////////
 
-public void IExplorer()
+public void IExplorer(String URLInicial)
 {
 	
 	System.setProperty("webdriver.ie.driver", ".\\IEDriverServer_win32\\IEDriverServer.exe");
@@ -697,14 +686,14 @@ public void IExplorer()
 
 }
 
-public void GChrome()
+public void GChrome(String URLInicial)
 {
 	
 	System.setProperty ("webdriver.chrome.driver", ".\\chromedriver\\chromedriver.exe");
 	driver = new ChromeDriver(); 
 	driver.manage().window().maximize();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	driver.get(URLSecundaria);
+	driver.get(URLInicial);
 
 } 
 
