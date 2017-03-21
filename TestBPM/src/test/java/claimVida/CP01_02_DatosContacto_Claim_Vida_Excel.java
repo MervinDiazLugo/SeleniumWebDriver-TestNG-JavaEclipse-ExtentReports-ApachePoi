@@ -51,9 +51,7 @@ public class CP01_02_DatosContacto_Claim_Vida_Excel {
   
   
  //Inicializa tarea segun ID de Tarea
-  	String IdTarea1= "1834";
-  	
-  	
+  	String IdTarea1= "1840";
 	String URLInicial= "http://bpm8502fix:9080/teamworks/redirect-login.jsp?credentials=bWVydmluZA%3D%3D%3AMTIzNDU2&j_forward=process.lsw?zWorkflowState=1%26zTaskId=" + IdTarea1 + "%26applicationId=2%26applicationInstanceId=guid:850bbec95ddcfaaf:7300daf5:15aa3b068d2:-7ffe";
 	
 	
@@ -71,7 +69,7 @@ public class CP01_02_DatosContacto_Claim_Vida_Excel {
 	LeerExcel = new ExcelDataConfig(ExcelPath);
 	EscribirExcel = new ExcelDataConfig(ExcelPath);
 	
-	GChrome(URLInicial);
+	GChrome();
 	
   }
 	
@@ -379,11 +377,11 @@ public class CP01_02_DatosContacto_Claim_Vida_Excel {
 
     }
   
-  /**
+
  @Test
   public void T06_DatosCobertura() throws Exception {
-	String IdTarea1= String.valueOf(Integer.valueOf(IdTarea1) + 1);
-	GChrome(IdTarea1);
+	IdTarea1= String.valueOf(Integer.valueOf(IdTarea1) + 1);
+	GChrome();
 	NombreReporte= "T06 Datos Cobertura";
 	TestCaptura="T06_DatosCobertura";
 	TestBPM=report.startTest(NombreReporte);
@@ -549,7 +547,6 @@ public class CP01_02_DatosContacto_Claim_Vida_Excel {
 
    }  
    
-**/
 public void datosEditar() throws Exception  
 
 {
@@ -672,7 +669,7 @@ public void editarDatoContacto(){
 }
 //////////////NAVEGADORES//////////////
 
-public void IExplorer(String URLInicial)
+public void IExplorer()
 {
 	
 	System.setProperty("webdriver.ie.driver", ".\\IEDriverServer_win32\\IEDriverServer.exe");
@@ -686,7 +683,7 @@ public void IExplorer(String URLInicial)
 
 }
 
-public void GChrome(String URLInicial)
+public void GChrome()
 {
 	
 	System.setProperty ("webdriver.chrome.driver", ".\\chromedriver\\chromedriver.exe");

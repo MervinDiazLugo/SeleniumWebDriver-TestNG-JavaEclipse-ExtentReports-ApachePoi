@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Rimac Claim - Vida]">
+  <test name="RIMAC(failed)">
     <classes>
-      <class name="claimVida.CP01_02_DatosContacto_Claim_Vida_Excel">
+      <class name="cp_claim_vida_excel.CP_05_DatosCobertura">
         <methods>
-          <include name="T04_EliminarDatosContacto"/>
-          <include name="T03_EditarDatosContacto"/>
+          <include name="T07_DatosSiniestro"/>
+          <include name="T06_DatosCobertura"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="T08_DatosBeneficiarios"/>
           <include name="setUp"/>
-          <include name="T02_AgregarOtroDatoConctacto"/>
+        </methods>
+      </class> <!-- cp_claim_vida_excel.CP_05_DatosCobertura -->
+      <class name="cp_claim_vida_excel.CP_00_IniciarTarea">
+        <methods>
+          <include name="T00_InicializarTarea"/>
+          <include name="setUp"/>
           <include name="tearDown"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- claimVida.CP01_02_DatosContacto_Claim_Vida_Excel -->
+      </class> <!-- cp_claim_vida_excel.CP_00_IniciarTarea -->
+      <class name="cp_claim_vida_excel.CP_01_02_DatosContacto">
+        <methods>
+          <include name="T01_AgregarDatosConctacto"/>
+          <include name="T02_AgregarOtroDatoConctacto"/>
+          <include name="tearDown"/>
+          <include name="tearDown"/>
+          <include name="T05_ZAvanzarAdmitirExpediente"/>
+          <include name="setUp"/>
+          <include name="T03_EditarDatosContacto"/>
+          <include name="T04_EliminarDatosContacto"/>
+        </methods>
+      </class> <!-- cp_claim_vida_excel.CP_01_02_DatosContacto -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- RIMAC(failed) -->
+</suite> <!-- Failed suite [Rimac Claim - Vida] -->
